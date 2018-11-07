@@ -1,0 +1,201 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='containerbg'>
+    <image src='https://wechat.fangxing123.cn/upload/main.jpg' mode='widthFix'></image>
+  </view>
+  <view class='questionlist' wx:if="{{!userquestionnaire.name&&show}}">
+    <view class='questionitem'>
+      <view class='question_title'>
+        姓名:
+      </view>
+      <view class='question_content'>
+        <input confirm-type='next' bindinput="changename"></input>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        电话:
+      </view>
+      <view class='question_content'>
+        <input type='number' confirm-type='next' bindinput="changephone"></input>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        年龄:
+      </view>
+      <view class='question_content'>
+        <input type='number' bindinput="changeage"></input>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        淘宝ID:
+      </view>
+      <view class='question_content'>
+        <input bindinput="changewwid"></input>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        微信号:
+      </view>
+      <view class='question_content'>
+        <input bindinput="changewxid"></input>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        肤质:
+      </view>
+      <view class='question_content'>
+        <view class='content_list'>
+          <view class="content_item {{skinTab==idx?'content_item_active':''}}" wx:for="{{skin}}" wx:for-index="idx" data-id="{{idx}}" wx:key="{{key}}" data-value="{{item}}" bindtap='changeskin'>{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='questionitem'>
+      <view class='question_title'>
+        功能性要求:
+      </view>
+      <view class='question_content'>
+        <view class='content_list'>
+          <view class="content_item {{item.check?'content_item_active':''}}" wx:for="{{requirements}}" wx:for-index="idx" data-id="{{idx}}" wx:key="{{key}}" data-value="{{item}}" bindtap='changerequirements'>{{item.name}}</view>
+
+        </view>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        常用购物方式:
+      </view>
+      <view class='question_content'>
+        <view class='content_list'>
+          <view class="content_item {{item.check?'content_item_active':''}}" wx:for="{{methods}}" wx:for-index="idx" data-id="{{idx}}" wx:key="{{key}}" data-value="{{item}}" bindtap='changemethods'>{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        淼淼店曾购物:
+      </view>
+      <view class='question_content'>
+        <view class='content_list'>
+          <view class="content_item {{historyTab==idx?'content_item_active':''}}" wx:for="{{shophistory}}" wx:for-index="idx" data-id="{{idx}}" wx:key="{{key}}" data-value="{{item}}" bindtap='changeshophistory'>{{item}}</view>
+        </view>
+      </view>
+    </view>
+     <view wx:if="{{is_bought=='否'}}" class='questionitem'>
+      <view class='question_title'>
+        个人地址:
+      </view>
+      <view class='question_content'>
+       <view wx:if="{{address}}" class='address' bindtap='chooseaddress'>{{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}</view>
+        <view wx:else  class='content_list'>
+          
+         
+          <view class="content_item "  bindtap='chooseaddress'>选择地址<text style='font-size:8pt'>(填写有机会收到随机礼物)</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='questionlist' wx:elif="{{userquestionnaire.name&&show}}">
+    <view class='questionitem'>
+      <view class='question_title'>
+        姓名:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.name}}</view>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        电话:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.phone}}</view>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        年龄:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.age}}</view>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        淘宝ID:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.ww_id}}</view>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        微信号:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.wechat_id}}</view>
+      </view>
+    </view>
+    <view class='questionitem'>
+      <view class='question_title'>
+        肤质:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.skin_type}}</view>
+      </view>
+    </view>
+
+    <view class='questionitem'>
+      <view class='question_title'>
+        功能性要求:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.skin_require}}</view>
+      </view>
+    </view>
+    <view class='questionitem' wx:if="{{userquestionnaire.platform}}">
+      <view class='question_title'>
+        常用购物方式:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.platform}}</view>
+      </view>
+    </view>
+        <view class='questionitem'>
+      <view class='question_title'>
+        淼淼店曾购物:
+      </view>
+      <view class='question_content'>
+        <view class='questionnaire'>{{userquestionnaire.is_bought}}</view>
+      </view>
+    </view>
+     <view wx:if="{{userquestionnaire.address}}" class='questionitem'>
+      <view class='question_title'>
+        个人地址:
+      </view>
+      <view class='question_content'>
+       <view  class='address'><view class='questionnaire'>{{userquestionnaire.address}}</view></view>
+      </view>
+    </view>
+  </view>
+  <view class='buybox' wx:if="{{!userquestionnaire.name&&show}}">
+    <button class='buy' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      <text decode="{{true}}" space="{{true}}">确认提交&nbsp;&nbsp;&nbsp;></text>
+    </button>
+  </view>
+  <view class='buybox' wx:if="{{userquestionnaire.name&&show}}">
+    <button class='buy'>
+      <text decode="{{true}}" space="{{true}}">谢谢合作&nbsp;&nbsp;&nbsp;…^_^…</text>
+    </button>
+  </view>
+  <!-- <image style='width:100%;height:231rpx' src='../../images/logo.jpg'></image> -->
+
+  <Toast id="Toast"></Toast>
+
+
+</view>

@@ -1,0 +1,60 @@
+<!--pages/person/person.wxml-->
+<view wx:if="{{order}}">
+<view style='padding:0 30rpx'>
+  <view class='orderitem'>
+    <view class='orderimage'>
+      <image src='{{goods.img}}'></image>
+    </view>
+    <view class='ordermessage'>
+      <view>{{goods.goods_name}}</view>
+      <view>{{goods.remark}}</view>
+      <view>￥{{goods.price}}</view>
+    </view>
+
+  </view>
+  </view>
+
+  <view wx:if="{{orderdetail.logistics_no}}" class='order_detaillist white'>
+    <view class='logistics_title white'>
+      <text>物流信息:<text class="logistics_name">{{logistics_info.expName}} {{logistics_info.number}}</text></text>
+    </view>
+    <view class='order_detaillist_ul '>
+      <block wx:for="{{logistics_info.list}}" wx:key="id" wx:for-index="i">
+        <view class='order_detaillist_li '>
+          <view class="order_main_message">
+            <view>
+              <text class="timeline_dot"></text>
+            </view>
+            <view class="order_detail_message">
+              <text>{{item.status}} | {{item.time}}</text>
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+      </block>
+      <view class='order_detaillist_li '>
+        <view>
+          <text class="timeline_dot"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:elif="{{orderdetail.status==01}}" class='logistics_title white'>
+    <text>物流信息:<text class="logistics_name">暂无物流信息</text></text>
+  </view>
+   <view wx:elif="{{orderdetail.status==00}}"> 
+  <!-- <view> -->
+    <view class='bottom_button'>
+      <view class='price'>合计：￥{{orderdetail.price}}</view>
+      <view bindtap='pay' class='buy'>立即支付</view>
+    </view>
+  </view>
+</view>
+<view style='display:flex; justify-content: center;align-items: center;height:100%;position:absolute;width:100%' wx:if="{{!order&&!loading}}">
+  <image src='../../images/noorder.png' style='width:269rpx;height:247rpx'></image>
+
+</view>
+<view class="deg">
+	<button  open-type="contact" session-from="weapp" class='button'>联系客服	</button>
+</view>
+<Toast id="Toast"></Toast>

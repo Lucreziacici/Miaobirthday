@@ -1,0 +1,33 @@
+/**app.wxss**/
+.orderitem{
+  display: flex;
+  justify-content: space-between;
+  padding:0 5rpx;
+  border: 1px solid #aaa;
+}
+.orderimage{
+  width:200rpx;
+display:flex;
+
+}
+.orderimage image{
+  width: 200rpx;
+  height: 220rpx
+}
+.ordermessage{
+  width: 550rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin:0 15rpx;
+
+}
+.ordermessage view:nth-child(1){
+  font-size: 10pt
+}
+.ordermessage view:nth-child(2){
+   font-size: 10pt
+}
+.ordermessage view:nth-child(3){
+   font-size: 10pt
+}

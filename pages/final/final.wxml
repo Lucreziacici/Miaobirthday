@@ -1,0 +1,39 @@
+<!--pages/final/final.wxml-->
+<view style='padding:0 20rpx '>
+  <view class='orderitem'>
+    <view class='orderimage'>
+      <image src='{{goodsdetail.img}}'></image>
+    </view>
+    <view class='ordermessage'>
+      <view>{{goodsdetail.goods_name}}</view>
+      <view>{{goodsdetail.remark}}</view>
+      <view>￥{{goodsdetail.price}}</view>
+    </view>
+
+  </view>
+
+  <view class='chooseaddress'bindtap='chooseaddress'>
+    <view class='icon'>
+      <image src='../../images/location_icon.png'></image>
+    </view>
+    <view class='choosemessage' wx:if="{{!address}}" >您还没有填写收货地址，请选择地址</view>
+    <view class='choosemessage' wx:elif="{{address}}" >
+      <view class='choose-item-center-bottom'>
+        <text>收件人:</text>
+        <text>{{address.userName}}  {{address.telNumber}}</text>
+      </view>
+      <view class='choose-item-center-bottom'>
+        <text>收货地址:</text>
+        <text>{{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+<view class='bottom_button'>
+<view class='price'>合计：￥{{goodsdetail.price}}</view>
+<view bindtap='pay' class='buy'>立即支付</view>
+</view>
+
+
+<Toast id="Toast"></Toast>

@@ -1,0 +1,120 @@
+/**index.wxss**/
+
+.containerbg image {
+  width: 100%;
+  height: 742rpx;
+}
+
+.questionlist {
+  padding: 0 28rpx;
+  margin: 88rpx 0 0 0;
+}
+
+.questionitem {
+  padding: 0 0 0 30rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 10pt;
+  font-weight: lighter;
+  color: #252525;
+}
+
+.question_content input {
+  height: 40rpx;
+  border: 1px solid #bababa;
+  width: 438rpx;
+  min-height: 40rpx;
+}
+
+.content_list {
+  display: flex;
+  justify-content: space-between;
+  width: 440rpx;
+  height: 44rpx;
+  border-top: 1px solid #bababa;
+  border-bottom: 1px solid #bababa;
+  border-right: 1px solid #bababa;
+}
+
+.content_item {
+  border-left: 1px solid #bababa;
+  padding: 12rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 9pt;
+}
+
+.content_item_active {
+  background-color: #a80200;
+  color: white;
+}
+
+.layout {
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layoutnone {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 10pt;
+}
+
+.layout image {
+  width: 50rpx;
+  height: 50rpx;
+  border: 6rpx solid #333;
+  border-radius: 100%;
+  padding: 10rpx;
+}
+
+.buybox {
+  display: flex;
+  justify-content: center;
+}
+
+.buy {
+  border-radius: 0;
+  background: #3d3b39;
+  color: white;
+  outline: 0;
+  margin: 65rpx 0;
+  font-size: 10pt;
+  /* width: 262rpx; */
+  font-weight: lighter;
+}
+
+button[class="buy"]::after {
+  border: 0;
+}
+
+.address {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 35rpx;
+  vertical-align: middle;
+  width:440rpx;
+}

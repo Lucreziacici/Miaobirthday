@@ -1,0 +1,60 @@
+/* pages/final/final.wxss */
+
+.chooseaddress {
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  border: 1px solid #aaa;
+  margin: 20rpx 0;
+}
+
+.chooseaddress image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.choosemessage {
+  font-size: 10pt;
+}
+
+.icon {
+  display: flex;
+  margin: 0 10rpx 0  0;
+}
+
+.buy {
+  /* border: 1rpx solid #6a6a6a; */
+  border-radius: 0;
+  /* background: white; */
+  outline: 0;
+  background: #6a6a6a;
+  color: white;
+  width: 30%;
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: center;
+}
+
+button[class="buy"]::after {
+  border: 0;
+}
+
+.bottom_button{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1rpx solid #6a6a6a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10pt;
+
+
+
+}
+.price{
+  display:flex;
+justify-content:flex-end;
+width:68%;
+
+}
